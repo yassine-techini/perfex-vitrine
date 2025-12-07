@@ -13,7 +13,6 @@ export default function Footer() {
         { label: 'Fonctionnalités', action: () => scrollToSection('produit') },
         { label: 'Modules', action: () => scrollToSection('modules') },
         { label: 'Déploiement', action: () => scrollToSection('déploiement') },
-        { label: 'Témoignages', action: () => scrollToSection('temoignages') },
         { label: 'Contact', action: () => scrollToSection('contact') },
       ]
     },
@@ -22,9 +21,6 @@ export default function Footer() {
       links: [
         { label: 'Documentation', url: '#' },
         { label: 'Tutoriels', url: '#' },
-        { label: 'Blog', url: '#' },
-        { label: 'Changelog', url: '#' },
-        { label: 'Status', url: '#' },
       ]
     },
     {
