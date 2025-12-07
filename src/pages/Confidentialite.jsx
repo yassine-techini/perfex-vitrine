@@ -85,7 +85,7 @@ export default function Confidentialite() {
               <li>Droit d'opposition</li>
             </ul>
             <p className="opacity-80 mt-4">
-              Pour exercer ces droits, contactez-nous à : <a href="mailto:privacy@devfactory.tn" className="text-perfex-red hover:underline">privacy@devfactory.tn</a>
+              Pour exercer ces droits, contactez-nous à : <a href="mailto:privacy@devfactory.ai" className="text-perfex-red hover:underline">privacy@devfactory.ai</a>
             </p>
           </section>
 
@@ -99,7 +99,7 @@ export default function Confidentialite() {
           <section>
             <h2 className="text-2xl font-display tracking-tight mb-4">8. Contact</h2>
             <p className="opacity-80">
-              Pour toute question concernant cette politique de confidentialité, contactez notre délégué à la protection des données : <a href="mailto:privacy@devfactory.tn" className="text-perfex-red hover:underline">privacy@devfactory.tn</a>
+              Pour toute question concernant cette politique de confidentialité, contactez notre délégué à la protection des données : <a href="mailto:privacy@devfactory.ai" className="text-perfex-red hover:underline">privacy@devfactory.ai</a>
             </p>
           </section>
         </div>

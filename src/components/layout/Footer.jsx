@@ -29,8 +29,8 @@ export default function Footer() {
       title: 'ENTREPRISE',
       links: [
         { label: 'À propos', url: '#' },
-        { label: 'Carrières', url: 'mailto:jobs@devfactory.tn' },
-        { label: 'Contact', url: 'mailto:contact@devfactory.tn' },
+        { label: 'Carrières', url: 'mailto:jobs@devfactory.ai' },
+        { label: 'Contact', url: 'mailto:contact@devfactory.ai' },
       ]
     },
   ]

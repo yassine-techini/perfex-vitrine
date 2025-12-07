@@ -4,7 +4,7 @@ export default function CTA() {
   }
 
   const handleContactClick = () => {
-    window.location.href = 'mailto:contact@devfactory.tn?subject=Demande%20de%20démo%20Perfex'
+    window.location.href = 'mailto:contact@devfactory.ai?subject=Demande%20de%20démo%20Perfex'
   }
 
   return (

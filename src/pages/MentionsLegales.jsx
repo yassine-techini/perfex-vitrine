@@ -32,7 +32,7 @@ export default function MentionsLegales() {
               <strong>DevFactory</strong><br />
               Société par actions simplifiée (SAS)<br />
               Siège social : Tunisie<br />
-              Email : <a href="mailto:contact@devfactory.tn" className="text-perfex-red hover:underline">contact@devfactory.tn</a>
+              Email : <a href="mailto:contact@devfactory.ai" className="text-perfex-red hover:underline">contact@devfactory.ai</a>
             </p>
           </section>
 
@@ -73,7 +73,7 @@ export default function MentionsLegales() {
           <section>
             <h2 className="text-2xl font-display tracking-tight mb-4">6. Contact</h2>
             <p className="opacity-80">
-              Pour toute question relative aux mentions légales, vous pouvez nous contacter à l'adresse suivante : <a href="mailto:legal@devfactory.tn" className="text-perfex-red hover:underline">legal@devfactory.tn</a>
+              Pour toute question relative aux mentions légales, vous pouvez nous contacter à l'adresse suivante : <a href="mailto:legal@devfactory.ai" className="text-perfex-red hover:underline">legal@devfactory.ai</a>
             </p>
           </section>
         </div>
