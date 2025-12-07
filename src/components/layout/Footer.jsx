@@ -29,8 +29,6 @@ export default function Footer() {
         { label: 'À propos', url: '#' },
         { label: 'Carrières', url: 'mailto:jobs@devfactory.tn' },
         { label: 'Contact', url: 'mailto:contact@devfactory.tn' },
-        { label: 'Presse', url: 'mailto:presse@devfactory.tn' },
-        { label: 'Partenaires', url: 'mailto:partenaires@devfactory.tn' },
       ]
     },
   ]
