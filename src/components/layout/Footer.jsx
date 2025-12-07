@@ -28,9 +28,9 @@ export default function Footer() {
     {
       title: 'ENTREPRISE',
       links: [
-        { label: 'À propos', url: '#' },
-        { label: 'Carrières', url: 'mailto:jobs@devfactory.ai' },
-        { label: 'Contact', url: 'mailto:contact@devfactory.ai' },
+        { label: 'À propos', to: '/a-propos' },
+        { label: 'Carrières', to: '/carrieres' },
+        { label: 'Contact', to: '/contact' },
       ]
     },
   ]
@@ -85,6 +85,13 @@ export default function Footer() {
                     >
                       {link.label}
                     </button>
+                  ) : link.to ? (
+                    <Link
+                      to={link.to}
+                      className="text-sm hover:text-perfex-red transition-colors"
+                    >
+                      {link.label}
+                    </Link>
                   ) : (
                     <a
                       href={link.url}
