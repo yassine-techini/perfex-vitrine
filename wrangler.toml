@@ -1,0 +1,24 @@
+# Configuration Cloudflare Pages pour Perfex Vitrine
+name = "perfex-vitrine"
+compatibility_date = "2024-01-01"
+
+# Pages configuration
+pages_build_output_dir = "dist"
+
+# Variables d'environnement (optionnel)
+[vars]
+SITE_NAME = "Perfex"
+COMPANY_NAME = "DevFactory"
+
+# Redirections (optionnel)
+# [[redirects]]
+# from = "/old-page"
+# to = "/new-page"
+# status = 301
+
+# Headers personnalisés (optionnel)
+# [[headers]]
+# for = "/*"
+# [headers.values]
+# X-Frame-Options = "DENY"
+# X-Content-Type-Options = "nosniff"

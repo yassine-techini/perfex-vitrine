@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   PERFEX VITRINE - STYLES GLOBAUX
+   Style: Brutalist Editorial
+   ============================================ */
+
+/* Base styles */
+@layer base {
+  * {
+    font-family: 'DM Sans', sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-perfex-bg text-perfex-black antialiased;
+  }
+  
+  /* Titres avec Bebas Neue */
+  h1, h2, h3, h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.01em;
+  }
+  
+  /* Code avec Space Mono */
+  code, pre, .font-mono {
+    font-family: 'Space Mono', monospace;
+  }
+}
+
+/* Components réutilisables */
+@layer components {
+  /* Bouton primaire */
+  .btn-primary {
+    @apply px-8 py-4 bg-black text-white font-bold tracking-wide 
+           hover:bg-perfex-red transition-all duration-300
+           flex items-center gap-3;
+  }
+  
+  /* Bouton secondaire */
+  .btn-secondary {
+    @apply px-8 py-4 border-2 border-black font-bold tracking-wide
+           hover:bg-black hover:text-white transition-all duration-300;
+  }
+  
+  /* Badge/Tag */
+  .badge {
+    @apply inline-block px-4 py-2 text-xs font-bold tracking-widest;
+  }
+  
+  .badge-red {
+    @apply badge bg-perfex-red text-white;
+  }
+  
+  .badge-green {
+    @apply badge bg-perfex-green text-black;
+  }
+  
+  .badge-blue {
+    @apply badge bg-perfex-blue text-white;
+  }
+  
+  /* Section avec bordure */
+  .section-bordered {
+    @apply relative z-10 border-b-2 border-black;
+  }
+  
+  /* Grille de fond */
+  .grid-background {
+    background-image: 
+      linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  
+  /* Card module */
+  .module-card {
+    @apply border-b-2 border-r-2 border-black p-8 lg:p-10 
+           cursor-pointer transition-all duration-300 relative overflow-hidden;
+  }
+  
+  /* Terminal style */
+  .terminal {
+    @apply bg-black text-white p-8 lg:p-12 font-mono text-sm;
+  }
+  
+  .terminal-prompt-user {
+    @apply text-perfex-green;
+  }
+  
+  .terminal-prompt-ai {
+    @apply text-perfex-red;
+  }
+}
+
+/* Utilitaires custom */
+@layer utilities {
+  /* Texte gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
+  }
+  
+  /* Titre héro massif */
+  .hero-title {
+    font-size: clamp(3.5rem, 12vw, 10rem);
+    @apply font-black leading-[0.85] tracking-tighter;
+  }
+  
+  /* Marquee container */
+  .marquee-container {
+    @apply overflow-hidden whitespace-nowrap;
+  }
+  
+  .marquee-content {
+    @apply flex gap-8 animate-marquee;
+  }
+  
+  /* Hover invert */
+  .hover-invert {
+    @apply hover:bg-black hover:text-white transition-all duration-300;
+  }
+  
+  /* Number background (pour modules) */
+  .number-bg {
+    @apply absolute -right-4 -top-4 text-[12rem] font-black 
+           opacity-5 pointer-events-none select-none;
+  }
+}
+
+/* Animations personnalisées */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-typing {
+  animation: typing 0.8s ease-in-out infinite alternate;
+}
+
+/* Scrollbar custom (optionnel) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-perfex-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-black/20 hover:bg-black/40;
+}
+
+/* Selection */
+::selection {
+  @apply bg-perfex-red text-white;
+}
