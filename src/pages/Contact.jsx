@@ -13,6 +13,9 @@ export default function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState(null)
+
+  const WORKER_URL = 'https://perfex-contact-form.yassine-techini.workers.dev'
 
   const subjects = [
     'Demande de démonstration',
@@ -27,40 +30,41 @@ export default function Contact() {
     setFormData(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError(null)
 
-    // Construire le corps de l'email
-    const emailBody = `
-Nouveau message depuis le site Perfex
+    try {
+      const response = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-----------------------------------
-NOM: ${formData.nom}
-PRÉNOM: ${formData.prenom}
-EMAIL: ${formData.email}
-ENTREPRISE: ${formData.entreprise || 'Non renseigné'}
-TÉLÉPHONE: ${formData.telephone || 'Non renseigné'}
-SUJET: ${formData.sujet}
-----------------------------------
+      const result = await response.json()
 
-MESSAGE:
-${formData.message}
+      if (!response.ok) {
+        throw new Error(result.error || 'Erreur lors de l\'envoi')
+      }
 
-----------------------------------
-Envoyé depuis le formulaire de contact Perfex
-    `.trim()
-
-    // Ouvrir le client mail avec les données pré-remplies
-    const mailtoLink = `mailto:contact@devfactory.ai?subject=${encodeURIComponent(`[Perfex] ${formData.sujet}`)}&body=${encodeURIComponent(emailBody)}`
-
-    window.location.href = mailtoLink
-
-    // Simuler l'envoi
-    setTimeout(() => {
-      setIsSubmitting(false)
       setSubmitted(true)
-    }, 1000)
+      setFormData({
+        nom: '',
+        prenom: '',
+        email: '',
+        entreprise: '',
+        telephone: '',
+        sujet: '',
+        message: ''
+      })
+    } catch (err) {
+      setError(err.message || 'Une erreur est survenue. Veuillez réessayer.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const inputClasses = "w-full px-4 py-3 border-2 border-black bg-transparent focus:outline-none focus:bg-black focus:text-white transition-colors placeholder:text-black/40"
@@ -85,31 +89,19 @@ Envoyé depuis le formulaire de contact Perfex
         </header>
 
         <div className="max-w-2xl mx-auto p-8 lg:p-16 text-center">
-          <span className="text-8xl">✉️</span>
+          <span className="text-8xl">✅</span>
           <h1 className="text-4xl lg:text-6xl font-display tracking-tighter mt-8 mb-6">
-            MERCI !
+            MESSAGE ENVOYÉ !
           </h1>
           <p className="text-xl leading-relaxed opacity-70 mb-8">
-            Votre client email s'est ouvert avec votre message pré-rempli.
-            Envoyez l'email pour finaliser votre demande.
+            Votre message a bien été envoyé à notre équipe.
           </p>
           <p className="text-lg mb-8">
-            Nous vous répondrons dans les plus brefs délais.
+            Nous vous répondrons dans les plus brefs délais à l'adresse email que vous avez indiquée.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <button
-              onClick={() => {
-                setSubmitted(false)
-                setFormData({
-                  nom: '',
-                  prenom: '',
-                  email: '',
-                  entreprise: '',
-                  telephone: '',
-                  sujet: '',
-                  message: ''
-                })
-              }}
+              onClick={() => setSubmitted(false)}
               className="px-8 py-4 border-2 border-black font-bold tracking-wide hover:bg-black hover:text-white transition-colors"
             >
               NOUVEAU MESSAGE
@@ -301,6 +293,12 @@ Envoyé depuis le formulaire de contact Perfex
                   className={`${inputClasses} resize-none`}
                 />
               </div>
+
+              {error && (
+                <div className="p-4 bg-red-100 border-2 border-red-500 text-red-700 text-sm">
+                  ⚠️ {error}
+                </div>
+              )}
 
               <div className="pt-4">
                 <button

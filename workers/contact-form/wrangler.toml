@@ -1,0 +1,7 @@
+name = "perfex-contact-form"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+TO_EMAIL = "contact@devfactory.ai"
+FROM_EMAIL = "noreply@perfex.devfactory.ai"
