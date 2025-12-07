@@ -1,10 +1,14 @@
+import { useNavigate } from 'react-router-dom'
+
 export default function CTA() {
+  const navigate = useNavigate()
+
   const handleDemoClick = () => {
-    window.open('https://calendly.com', '_blank')
+    navigate('/contact')
   }
 
   const handleContactClick = () => {
-    window.location.href = 'mailto:contact@devfactory.ai?subject=Demande%20de%20démo%20Perfex'
+    navigate('/contact')
   }
 
   return (
