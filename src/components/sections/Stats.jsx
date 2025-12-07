@@ -7,7 +7,7 @@ export default function Stats() {
   ]
 
   return (
-    <section className="section-bordered">
+    <section id="stats" className="section-bordered">
       <div className="grid grid-cols-2 lg:grid-cols-4">
         {stats.map((stat, i) => (
           <div 

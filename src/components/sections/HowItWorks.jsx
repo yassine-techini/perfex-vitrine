@@ -18,7 +18,7 @@ export default function HowItWorks() {
   ]
 
   return (
-    <section className="section-bordered">
+    <section id="ressources" className="section-bordered">
       <div className="grid lg:grid-cols-4">
         {/* Title */}
         <div className="p-8 lg:p-12 bg-perfex-red text-white lg:border-r-2 border-black">

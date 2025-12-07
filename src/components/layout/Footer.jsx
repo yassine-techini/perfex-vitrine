@@ -1,23 +1,48 @@
 export default function Footer() {
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   const footerLinks = [
-    { 
-      title: 'PRODUIT', 
-      links: ['Fonctionnalités', 'Modules', 'Intégrations', 'API', 'Roadmap'] 
+    {
+      title: 'PRODUIT',
+      links: [
+        { label: 'Fonctionnalités', action: () => scrollToSection('produit') },
+        { label: 'Modules', action: () => scrollToSection('modules') },
+        { label: 'Déploiement', action: () => scrollToSection('déploiement') },
+        { label: 'Témoignages', action: () => scrollToSection('temoignages') },
+        { label: 'Contact', action: () => scrollToSection('contact') },
+      ]
     },
-    { 
-      title: 'RESSOURCES', 
-      links: ['Documentation', 'Tutoriels', 'Blog', 'Changelog', 'Status'] 
+    {
+      title: 'RESSOURCES',
+      links: [
+        { label: 'Documentation', url: '#' },
+        { label: 'Tutoriels', url: '#' },
+        { label: 'Blog', url: '#' },
+        { label: 'Changelog', url: '#' },
+        { label: 'Status', url: '#' },
+      ]
     },
-    { 
-      title: 'ENTREPRISE', 
-      links: ['À propos', 'Carrières', 'Contact', 'Presse', 'Partenaires'] 
+    {
+      title: 'ENTREPRISE',
+      links: [
+        { label: 'À propos', url: '#' },
+        { label: 'Carrières', url: 'mailto:jobs@devfactory.tn' },
+        { label: 'Contact', url: 'mailto:contact@devfactory.tn' },
+        { label: 'Presse', url: 'mailto:presse@devfactory.tn' },
+        { label: 'Partenaires', url: 'mailto:partenaires@devfactory.tn' },
+      ]
     },
   ]
 
   const socialLinks = [
-    { name: 'X', url: '#' },
-    { name: 'IN', url: '#' },
-    { name: 'GH', url: '#' },
+    { name: 'X', url: 'https://twitter.com/devfactory' },
+    { name: 'IN', url: 'https://linkedin.com/company/devfactory' },
+    { name: 'GH', url: 'https://github.com/devfactory' },
   ]
 
   return (
@@ -37,9 +62,11 @@ export default function Footer() {
           </p>
           <div className="flex gap-3">
             {socialLinks.map((social, i) => (
-              <a 
-                key={i} 
-                href={social.url} 
+              <a
+                key={i}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 border-2 border-black flex items-center justify-center font-bold text-xs hover:bg-black hover:text-white transition-colors"
               >
                 {social.name}
@@ -55,9 +82,23 @@ export default function Footer() {
             <ul className="space-y-3">
               {col.links.map((link, j) => (
                 <li key={j}>
-                  <a href="#" className="text-sm hover:text-perfex-red transition-colors">
-                    {link}
-                  </a>
+                  {link.action ? (
+                    <button
+                      onClick={link.action}
+                      className="text-sm hover:text-perfex-red transition-colors"
+                    >
+                      {link.label}
+                    </button>
+                  ) : (
+                    <a
+                      href={link.url}
+                      target={link.url.startsWith('mailto:') ? undefined : '_blank'}
+                      rel={link.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                      className="text-sm hover:text-perfex-red transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
@@ -73,9 +114,9 @@ export default function Footer() {
           <span className="text-sm opacity-60">France & Tunisie</span>
         </div>
         <div className="flex items-center gap-6 text-xs">
-          <a href="#" className="hover:text-perfex-red transition-colors">MENTIONS LÉGALES</a>
-          <a href="#" className="hover:text-perfex-red transition-colors">CONFIDENTIALITÉ</a>
-          <a href="#" className="hover:text-perfex-red transition-colors">CGU</a>
+          <button onClick={() => scrollToSection('contact')} className="hover:text-perfex-red transition-colors">MENTIONS LÉGALES</button>
+          <button onClick={() => scrollToSection('contact')} className="hover:text-perfex-red transition-colors">CONFIDENTIALITÉ</button>
+          <button onClick={() => scrollToSection('contact')} className="hover:text-perfex-red transition-colors">CGU</button>
         </div>
         <div className="font-mono text-xs text-black/40">
           © 2025 — v1.0.0

@@ -28,7 +28,7 @@ export default function Testimonials() {
   ]
 
   return (
-    <section className="section-bordered">
+    <section id="temoignages" className="section-bordered">
       <div className="grid lg:grid-cols-3">
         {/* Title */}
         <div className="p-8 lg:p-12 bg-black text-white lg:border-r-2 border-black">

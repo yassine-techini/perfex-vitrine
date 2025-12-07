@@ -3,6 +3,13 @@ import { useState } from 'react'
 export default function Deployment() {
   const [hoveredOption, setHoveredOption] = useState(null)
 
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   const saasFeatures = [
     'Déploiement instantané',
     'Mises à jour automatiques',
@@ -159,7 +166,10 @@ export default function Deployment() {
             <span className="text-gray-400 ml-2 text-sm">— Combinez SaaS et On-Premise selon vos besoins</span>
           </div>
         </div>
-        <button className="px-6 py-3 border-2 border-white text-sm font-bold tracking-wide hover:bg-white hover:text-black transition-all">
+        <button
+          onClick={() => scrollToSection('contact')}
+          className="px-6 py-3 border-2 border-white text-sm font-bold tracking-wide hover:bg-white hover:text-black transition-all"
+        >
           EN SAVOIR PLUS
         </button>
       </div>

@@ -1,6 +1,14 @@
 export default function CTA() {
+  const handleDemoClick = () => {
+    window.open('https://calendly.com', '_blank')
+  }
+
+  const handleContactClick = () => {
+    window.location.href = 'mailto:contact@devfactory.tn?subject=Demande%20de%20démo%20Perfex'
+  }
+
   return (
-    <section className="relative z-10 bg-black text-white">
+    <section id="contact" className="relative z-10 bg-black text-white">
       <div className="p-8 lg:p-24">
         <div className="max-w-5xl mx-auto text-center">
           {/* Label */}
@@ -24,18 +32,24 @@ export default function CTA() {
           
           {/* CTAs */}
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="group px-10 py-5 bg-perfex-red text-white font-bold text-lg tracking-wide hover:bg-white hover:text-black transition-all flex items-center gap-3">
+            <button
+              onClick={handleDemoClick}
+              className="group px-10 py-5 bg-perfex-red text-white font-bold text-lg tracking-wide hover:bg-white hover:text-black transition-all flex items-center gap-3"
+            >
               <span>DÉMARRER L'ESSAI GRATUIT</span>
-              <svg 
-                className="w-5 h-5 group-hover:translate-x-2 transition-transform" 
-                fill="none" 
-                stroke="currentColor" 
+              <svg
+                className="w-5 h-5 group-hover:translate-x-2 transition-transform"
+                fill="none"
+                stroke="currentColor"
                 viewBox="0 0 24 24"
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </button>
-            <button className="px-10 py-5 border-2 border-white font-bold text-lg tracking-wide hover:bg-white hover:text-black transition-all">
+            <button
+              onClick={handleContactClick}
+              className="px-10 py-5 border-2 border-white font-bold text-lg tracking-wide hover:bg-white hover:text-black transition-all"
+            >
               PARLER À UN EXPERT
             </button>
           </div>
