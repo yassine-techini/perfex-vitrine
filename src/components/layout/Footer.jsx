@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Footer() {
   const scrollToSection = (id) => {
     const element = document.getElementById(id)
@@ -108,9 +110,9 @@ export default function Footer() {
           <span className="text-sm opacity-60">France & Tunisie</span>
         </div>
         <div className="flex items-center gap-6 text-xs">
-          <button onClick={() => scrollToSection('contact')} className="hover:text-perfex-red transition-colors">MENTIONS LÉGALES</button>
-          <button onClick={() => scrollToSection('contact')} className="hover:text-perfex-red transition-colors">CONFIDENTIALITÉ</button>
-          <button onClick={() => scrollToSection('contact')} className="hover:text-perfex-red transition-colors">CGU</button>
+          <Link to="/mentions-legales" className="hover:text-perfex-red transition-colors">MENTIONS LÉGALES</Link>
+          <Link to="/confidentialite" className="hover:text-perfex-red transition-colors">CONFIDENTIALITÉ</Link>
+          <Link to="/cgu" className="hover:text-perfex-red transition-colors">CGU</Link>
         </div>
         <div className="font-mono text-xs text-black/40">
           © 2025 — v1.0.0
